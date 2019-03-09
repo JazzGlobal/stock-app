@@ -1,6 +1,3 @@
-//Import Variables (Express, mongoose, request)
-//Set view engine to EJS
-//Set up mongoose database
 var express = require('express'),
     request = require('request'),
     mongoose = require('mongoose'),
@@ -20,4 +17,3 @@ var port = process.env.PORT || 3000;
 app.listen(port, process.env.IP, function(){
   console.log("listening on: " + port);
 });
-//Set up app.listen
