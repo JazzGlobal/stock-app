@@ -4,7 +4,8 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     api = require('./api/api'),
     newsSeed = require('./seeds/article_seed'),
-    Article = require('./models/article')
+    companySeed = require('./seeds/company_seed'),
+    Article = require('./models/article'),
     app = express();
 
 
@@ -13,7 +14,7 @@ mongoose.connect("mongodb://localhost/stock_app", {useNewUrlParser: true});
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
-newsSeed();
+companySeed();
 
 //Routes
 app.get("/", function(req, res){
@@ -33,7 +34,6 @@ app.get("/", function(req, res){
 
 app.get("/:symbol", function(req, res){
   //Company Route
-
 });
 
 var port = process.env.PORT || 3000;
