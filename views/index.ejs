@@ -8,20 +8,7 @@
       </div>
   </div>
 
-  <div class="container">
-    <h2><strong>Recent Market News</strong></h2>
-    <hr>
-    <%for (var i = 0; i < data.length; i++){%>
-      <div class="card" style="margin-bottom:10px;">
-        <img src="<%=data[i].image%>" alt="">
-        <div class="card-body">
-          <h5 class="card-title"><strong><%=data[i].headline%></strong></h5>
-          <p class="card-text"><%=data[i].summary%></p>
-          <a href="<%=data[i].url%>" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    <%}%>
-  </div>
+  <!-- Add form with search bar  -->
 
 
 <% include partials/footer %>
