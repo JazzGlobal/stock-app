@@ -29,7 +29,12 @@ app.get("/", function(req, res){
     data = response;
     res.render('index', {data: data});
   });
-})
+});
+
+app.get("/:symbol", function(req, res){
+  //Company Route
+
+});
 
 var port = process.env.PORT || 3000;
 app.listen(port, process.env.IP, function(){
