@@ -1,5 +1,113 @@
 <% include partials/header %>
+<% function round(value, decimals){return Number(Math.round(value+'e'+decimals)+'e-'+decimals)} %>
+<div class="container">
 
+  <div>
+    <h1><%= data.quote.symbol %>
+      <span class="text-muted" style="font-size: .5em;">
+          <%= data.quote.companyName %>
+      </span>
+    </h1>
+  </div>
 
+  <div class="container info-container">
+    <h3>Market</h3>
+    <hr>
+    <div>
+      <h4><strong> Cost: $<%= data.quote.latestPrice %></strong></h4>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        <div class="label-group">
+          <p><strong>CEO</strong></p>
+          <p><%= data.company.CEO %></p>
+        </div>
+        <div class="label-group">
+          <p><strong>CEO</strong></p>
+          <p><%= data.company.CEO %></p>
+        </div>
+        <div class="label-group">
+          <p><strong>CEO</strong></p>
+          <p><%= data.company.CEO %></p>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="label-group">
+          <p><strong>CEO</strong></p>
+          <p><%= data.company.CEO %></p>
+        </div>
+        <div class="label-group">
+          <p><strong>CEO</strong></p>
+          <p><%= data.company.CEO %></p>
+        </div>
+        <div class="label-group">
+          <p><strong>CEO</strong></p>
+          <p><%= data.company.CEO %></p>
+        </div>
+      </div>
+      <div class="col-sm">
+        <div class="label-group">
+          <p><strong>CEO</strong></p>
+          <p><%= data.company.CEO %></p>
+        </div>
+        <div class="label-group">
+          <p><strong>CEO</strong></p>
+          <p><%= data.company.CEO %></p>
+        </div>
+        <div class="label-group">
+          <p><strong>CEO</strong></p>
+          <p><%= data.company.CEO %></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container info-container">
+    <h3>About</h3>
+    <hr>
+    <p><%= data.company.description %></p>
+    <div class="row">
+            <div class="col-sm">
+              <div class="label-group">
+                <p><strong>CEO</strong></p>
+                <p><%= data.company.CEO %></p>
+              </div>
+              <div class="label-group">
+                <p><strong>Website</strong></p>
+                <p><a href="<%= data.company.website %>"><%= data.company.website %></a></p>
+              </div>
+              <div class="label-group">
+                <p><strong>Sector</strong></p>
+                <p><%= data.company.sector %></p>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="label-group">
+                <p><strong>52-Week High</strong></p>
+                <p>$<%= data.quote.week52High %></p>
+              </div>
+              <div class="label-group">
+                <p><strong>52-Week Low</strong></p>
+                <p>$<%= data.quote.week52Low %></p>
+              </div>
+              <div class="label-group">
+                <p><strong>Change Percent</strong></p>
+                <p><%= round(data.quote.changePercent,3) %>%</p>
+              </div>
+            </div>
+            <div class="col-sm">
+              <div class="label-group">
+                <p><strong>Exchange</strong></p>
+                <p><%= data.company.exchange %></p>
+              </div>
+              <div class="label-group">
+                <p><strong>Industry</strong></p>
+                <p><%= data.company.industry %></p>
+              </div>
+            </div>
+      </div>
+  </div>
+
+</div>
 <% include partials/news %>
 <% include partials/footer %>
