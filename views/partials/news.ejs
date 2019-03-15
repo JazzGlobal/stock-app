@@ -1,0 +1,14 @@
+<div class="container">
+  <h2><strong>Recent <%=data.quote.companyName%> News</strong></h2>
+  <hr>
+  <%for (var i = 0; i < data.news.length; i++){%>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-body">
+        <h5 class="card-title"><strong><%=data.news[i].headline%></strong></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%=new Date(data.news[i].datetime)%></h6>
+        <p class="card-text"><%=data.news[i].summary%></p>
+        <a href="<%=data.news[i].url%>" class="btn btn-primary">Read More</a>
+      </div>
+    </div>
+  <%}%>
+</div>
