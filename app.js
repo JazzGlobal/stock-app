@@ -32,9 +32,21 @@ app.get("/", function(req, res){
 });
 
 app.get("/:symbol", function(req, res){
-  api.getCompany(req.params.symbol, function (response) {
+  api.getCompany(req.params.symbol, function (response, success) {
     data = response;
-    res.render("company", {data: data})
+    if(success){
+      res.render("company", {data: data})
+    }
+    else{
+      Article.find({}, function(err, articles){
+        if(err){
+          console.log(err);
+        }
+        else{
+          res.render("unknown", {data: articles});
+        }
+      });
+    }
   });
 });
 
