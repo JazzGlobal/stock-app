@@ -19,46 +19,34 @@
     <div class="row">
       <div class="col-sm">
         <div class="label-group">
-          <p><strong>CEO</strong></p>
-          <p><%= data.company.CEO %></p>
+          <p><strong>Open</strong></p>
+          <p>$<%= data.quote.open %></p>
         </div>
         <div class="label-group">
-          <p><strong>CEO</strong></p>
-          <p><%= data.company.CEO %></p>
+          <p><strong>Close</strong></p>
+          <p>$<%= data.quote.close %></p>
         </div>
         <div class="label-group">
-          <p><strong>CEO</strong></p>
-          <p><%= data.company.CEO %></p>
+          <p><strong>Change Percent</strong></p>
+          <p><%= round(data.quote.changePercent,3) %>%</p>
         </div>
       </div>
+
       <div class="col-sm">
         <div class="label-group">
-          <p><strong>CEO</strong></p>
-          <p><%= data.company.CEO %></p>
+          <p><strong>52-Week High</strong></p>
+          <p>$<%= data.quote.week52High %></p>
         </div>
         <div class="label-group">
-          <p><strong>CEO</strong></p>
-          <p><%= data.company.CEO %></p>
-        </div>
-        <div class="label-group">
-          <p><strong>CEO</strong></p>
-          <p><%= data.company.CEO %></p>
+          <p><strong>52-Week Low</strong></p>
+          <p>$<%= data.quote.week52Low %></p>
         </div>
       </div>
+
       <div class="col-sm">
-        <div class="label-group">
-          <p><strong>CEO</strong></p>
-          <p><%= data.company.CEO %></p>
-        </div>
-        <div class="label-group">
-          <p><strong>CEO</strong></p>
-          <p><%= data.company.CEO %></p>
-        </div>
-        <div class="label-group">
-          <p><strong>CEO</strong></p>
-          <p><%= data.company.CEO %></p>
-        </div>
+
       </div>
+
     </div>
   </div>
 
@@ -81,20 +69,7 @@
                 <p><%= data.company.sector %></p>
               </div>
             </div>
-            <div class="col-sm">
-              <div class="label-group">
-                <p><strong>52-Week High</strong></p>
-                <p>$<%= data.quote.week52High %></p>
-              </div>
-              <div class="label-group">
-                <p><strong>52-Week Low</strong></p>
-                <p>$<%= data.quote.week52Low %></p>
-              </div>
-              <div class="label-group">
-                <p><strong>Change Percent</strong></p>
-                <p><%= round(data.quote.changePercent,3) %>%</p>
-              </div>
-            </div>
+
             <div class="col-sm">
               <div class="label-group">
                 <p><strong>Exchange</strong></p>
@@ -105,6 +80,11 @@
                 <p><%= data.company.industry %></p>
               </div>
             </div>
+
+            <div class="col-sm">
+
+            </div>
+
       </div>
   </div>
 
