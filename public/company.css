@@ -25,3 +25,8 @@ footer {
 footer col {
   padding: 12px;
 }
+
+footer .col ul {
+  margin: 0 auto;
+  font-size: 1.2em;
+}
