@@ -51,6 +51,14 @@ app.get("/symbol", function(req, res){
   });
 });
 
+app.get("/about", function(req, res){
+  res.send("This will be the about page!");
+});
+
+app.get("/contact", function(req, res){
+  res.send("This will be the contact page!");
+});
+
 var port = process.env.PORT || 3000;
 app.listen(port, process.env.IP, function(){
   console.log("listening on: " + port);
