@@ -14,3 +14,13 @@
 form button {
   margin-top: 10px;
 }
+
+/* Footer Styles  */
+
+footer {
+  margin-top: 2em;
+}
+
+footer col {
+  padding: 12px;
+}
