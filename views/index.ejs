@@ -1,27 +1,37 @@
 <% include partials/header %>
 
-  <div class="container">
-      <div class="jumbotron">
-        <h1 class="display-4">Welcome to the Stock Lookup Application</h1>
-        <p class="lead">This is a simple application used for basic stock market research. The data provided comes from the <a href="https://iextrading.com/">IEXTrading API</a></p>
-        <a href="#" class="btn btn-primary btn-lg">Get Started</a>
+<div class="container">
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to the Stock Lookup Application</h1>
+    <p class="lead">This is a simple application used for basic stock market research. The data provided comes from the <a href="https://iextrading.com/">IEXTrading API</a> Enter a stock symbol (aapl, googl, etc) into the search box to begin!</p>
+    <form action="/symbol" method="GET">
+      <div class="form-group">
+        <h4>Search</h4>
+        <input type="text" class="form-control" name="search" id="search" placeholder="Enter a Stock">
+        <small id="searchHelp" class="form-text text-muted">The app currently only supports single stock searches.</small>
+        <button type="submit" class="btn btn-primary" name="button">Search</button>
       </div>
+    </form>
   </div>
+
+
+
+  <h2><strong>Recent Market News</strong></h2>
+  <hr>
+  <% for (var i = 0; i < data.length; i++){ %>
+    <div class="card" style="margin-bottom:10px;">
+      <div class="card-body">
+        <h5 class="card-title"><strong><%= data[i].headline %></strong></h5>
+        <h6 class="card-subtitle mb-2 text-muted"><%= new Date(data[i].datetime) %></h6>
+        <p class="card-text"><%= data[i].summary %></p>
+        <a href="<%= data[i].url %>" class="btn btn-primary">Read More</a>
+      </div>
+    </div>
+  <% } %>
+</div>
+
+
 
   <!-- Add form with search bar  -->
 
-  <div class="container">
-    <h2><strong>Recent Market News</strong></h2>
-    <hr>
-    <% for (var i = 0; i < data.length; i++){ %>
-      <div class="card" style="margin-bottom:10px;">
-        <div class="card-body">
-          <h5 class="card-title"><strong><%= data[i].headline %></strong></h5>
-          <h6 class="card-subtitle mb-2 text-muted"><%= new Date(data[i].datetime) %></h6>
-          <p class="card-text"><%= data[i].summary %></p>
-          <a href="<%= data[i].url %>" class="btn btn-primary">Read More</a>
-        </div>
-      </div>
-    <% } %>
-  </div>
 <% include partials/footer %>
