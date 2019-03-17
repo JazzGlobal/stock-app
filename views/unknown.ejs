@@ -1,8 +1,20 @@
 <% include partials/header%>
 
-<h1>You've reached the UNKNOWN page</h1>
-
 <div class="container">
+
+  <div class="jumbotron">
+    <h1 class="display-4">Well This Is Awkward!</h1>
+    <p class="lead">It seems the symbol you entered either doesn't exist or isn't support by the API. Please try again!</p>
+    <form action="/symbol" method="GET">
+      <div class="form-group">
+        <h4>Search</h4>
+        <input type="text" class="form-control" name="search" id="search" placeholder="Enter a Stock">
+        <small id="searchHelp" class="form-text text-muted">The app currently only supports single stock searches.</small>
+        <button type="submit" class="btn btn-primary" name="button">Search</button>
+      </div>
+    </form>
+  </div>
+
   <h2><strong>Recent Market News</strong></h2>
   <hr>
   <% for (var i = 0; i < data.length; i++){ %>
