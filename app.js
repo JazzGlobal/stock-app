@@ -31,8 +31,10 @@ app.get("/", function(req, res){
   });
 });
 
-app.get("/:symbol", function(req, res){
-  api.getCompany(req.params.symbol, function (response, success) {
+app.get("/symbol", function(req, res){
+  var symbol = req.query.search;
+  console.log(symbol);
+  api.getCompany(symbol, function (response, success) {
     data = response;
     if(success){
       res.render("company", {data: data})
