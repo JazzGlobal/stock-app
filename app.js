@@ -12,7 +12,7 @@ var express = require('express'),
 mongoose.connect("mongodb://localhost/stock_app", {useNewUrlParser: true});
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.static("public"));
+app.use('/static', express.static('public'))
 newsSeed();
 
 //Routes
@@ -32,21 +32,24 @@ app.get("/", function(req, res){
 });
 
 app.get("/symbol", function(req, res){
+
   var symbol = req.query.search;
   api.getCompany(symbol, function (response, success) {
-    data = response;
+    var data = response;
     if(success){
       res.render("company", {data: data})
     }
-    else{
-      Article.find({}, function(err, articles){
-        if(err){
-          console.log(err);
-        }
-        else{
-          res.render("unknown", {data: articles});
-        }
-      });
+    else if(!success){
+      console.log('Rendering Unknown Page');
+      res.render("unknown");
+      // Article.find({}, function(err, articles){
+      //   if(err){
+      //     console.log(err);
+      //   }
+      //   else{
+      //     res.render("unknown", {data: articles});
+      //   }
+      // });
     }
   });
 });

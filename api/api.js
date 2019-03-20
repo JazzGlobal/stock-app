@@ -1,4 +1,5 @@
-var request = require('request');
+var request = require('request'),
+    XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
 
 const api =
   {
@@ -13,14 +14,22 @@ const api =
 
     getCompany(symbol, callback){
       request(`https://api.iextrading.com/1.0/stock/${symbol}/batch?types=quote,news,company`, function(error, response, body){
-        if(body == 'Unknown symbol'){
-          callback(body, false);
+        try{
+          if(body == 'Unknown symbol'){
+            throw 'Unknown Symbol'
+          }
+          else if(!error && response.statusCode == 200){
+            console.log('Success: ' + symbol);
+            var data = JSON.parse(body);
+            callback(data, true);
+          }
         }
-        else if(!error && response.statusCode == 200){
-          var data = JSON.parse(body);
-          callback(data, true);
+        catch(err){
+          console.log(err);
+          callback('', false);
         }
       });
     }
+//Add more functions here.
   }
 module.exports = api;
